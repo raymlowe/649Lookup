@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 //components
 import ShowBigWinnings from './showbigwinnings';
+import ShowTotalStats from './showtotalstats';
 
 const ResultsDisplayStyled = styled.div`
     background-color:#dddddd;  
@@ -18,6 +19,8 @@ function ResultsDisplay({results, userNumbers}) {
         <ResultsDisplayStyled>
             <div>
                 <ShowBigWinnings results={results} userNumbers={userNumbers}/>
+                <hr></hr>
+                <ShowTotalStats results={results} userNumbers={userNumbers}/>
             </div>
         </ResultsDisplayStyled>
     );

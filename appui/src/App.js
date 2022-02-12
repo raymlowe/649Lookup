@@ -35,7 +35,6 @@ return(
       <UserInput setUserNumbers={setUserNumbers}/>
       <ResultsDisplay results={results} userNumbers={userNumbers}/>
     </div>
-
   </AppStyled>
 )  
 

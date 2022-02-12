@@ -9,7 +9,6 @@ function numberMatcher(result, userNumbers) {
         2/6+ --> 8 two out of six numbers plus bonus
         5/6+ --> 9 five out of the six numbers plus bonus
     */
-
     var score = 0;
     //We will compare the user numbers to the result numbers
     for (let i = 0; i < userNumbers.length; i++) {
@@ -54,6 +53,40 @@ function numberMatcher(result, userNumbers) {
     return score;
 }
 
+
+
+/*
+Given a score value, we want to return the prize amount
+Prize amount by score table:
+    2   (2/6) = $3
+    3   (3/6) = $10
+    4   (4/6) = $85
+    5   (5/6) = $3000
+    6   (6/6) = $5,000,000
+    8   (2/6+)= $5
+    9   (5/6+)= $250,000
+*/
+function getAmountByScore(score){
+    if(score==2){
+        return 3;
+    }else if(score==3){
+        return 10;
+    }else if(score==4){
+        return 85;
+    }else if(score==5){
+        return 3000;
+    }else if(score==6){
+        return 5000000;
+    }else if(score==8){
+        return 5;
+    }else if(score==9){
+        return 250000
+    }else{
+        return 0;
+    }
+}
+
 export const utils = {
-    numberMatcher
+    numberMatcher,
+    getAmountByScore
 };

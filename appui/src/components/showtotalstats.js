@@ -1,0 +1,56 @@
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import styled from 'styled-components';
+import { utils } from '../utils';
+
+const ShowTotalStatsStyled = styled.div`
+    background-color:#dddddd;  
+`
+
+function ShowTotalStats({ results, userNumbers }) {
+
+    //Compute Total Winnings / Spendings
+    let winnings = 0;
+    let spendings = 0;
+    let nettings = 0;
+    if (results.data) {
+        //Look at each historical result and compute winnings
+        for (var i = 0; i < results.data.length; i++) {
+            let result = results.data[i]
+            //Match our defined set of results
+            if (result.draw_number <= 3620) {
+                //calculate our winnings
+                let score = utils.numberMatcher(result, userNumbers)
+                const amount = utils.getAmountByScore(score)
+                winnings += amount;
+
+                //Compute Total Spent
+                //We assume that the user did not miss a draw
+                if (result.draw_number >= 1 && result.draw_number <= 2124) {
+                    spendings = spendings + 1;
+                } else if (result.draw_number >= 2125 && result.draw_number <= 2989) {
+                    spendings = spendings + 2;
+                } else if (result.draw_number >= 2990 && result.draw_number <= 3620) {
+                    spendings = spendings + 3;
+                }
+            }
+        }
+        //net win/loss
+        nettings = winnings - spendings;
+    }
+
+    return (
+        <ShowTotalStatsStyled>
+            <div>
+                <p>Total won: ${winnings}</p>
+                <p>Total Spent: ${spendings}</p>
+                <p>Total won/loss: ${nettings}</p>
+            </div>
+        </ShowTotalStatsStyled>
+    );
+};
+
+export default ShowTotalStats

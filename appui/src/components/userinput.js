@@ -73,8 +73,14 @@ function UserInput({ setUserNumbers }) {
 
     const handleSubmit = event => {
         event.preventDefault();
+        console.log("YOUR NUMBERS: ")
+        console.log(state.number1);
+        console.log(state.number2);
+        console.log(state.number3);
+        console.log(state.number4);
+        console.log(state.number5);
+        console.log(state.number6);
         validateNumbers();
-        
     }
 
     return (
