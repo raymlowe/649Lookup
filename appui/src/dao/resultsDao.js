@@ -8,7 +8,7 @@ async function getResultsDAO(){
         resultsData = await results.json();
         return resultsData;
     }catch (error) {
-        console.log("Error in resultsDAO getResultsDAO(): ", error);
+        console.log("Error in resultsDAO getResultsDAO(): "+ error);
         throw error;
     }
 }

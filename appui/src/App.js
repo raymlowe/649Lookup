@@ -24,7 +24,7 @@ useEffect(() => {
       }
     })
     .catch((error) => {
-      console.log("error in home index on getTourboats: ", error);
+      console.log("error in home index getting data: "+error);
     });
 }, []);
 
