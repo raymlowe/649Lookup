@@ -1,5 +1,12 @@
-# Getting Started with Fishfry Tours
-This application can be used to track and change that status of a fleet of tour boats
+# Getting Started Lotto Lookup
+Tests scrips can be run from the appui directory using JEST:
+cd/appui
+npm tests
+
+API ENDPOINT:
+Raw Data API can be found here:
+/expressindex
+
 
 # Stack description:
 This application uses the following:
@@ -20,8 +27,7 @@ npm install cross-env --save-dev
 
 Postgres Database
 Using: https://node-postgres.com/
-See /sql for migration scripts / seeds
-*Important* You must seed the swimlanes
+
 
 # Installation
 Node.js is required to run this application, as well as a database (Postgres is assumed)
@@ -41,12 +47,3 @@ This will start up the UI on port 3001. Middleware calls are proxied to 3000. Se
 To deploy this app in a production environment, you want to first run 'npm run build' from the root 
 directory. See /package.json --> scrpts: for more detail. This is package the ui application and run 
 it along with the middlware all on port 3000.
-
-
-Raw Data API can be found here:
-/expressindex
-
-Tests can be run in th appui application via the following steps:
-
-cd/appui
-npm test
