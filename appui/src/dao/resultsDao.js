@@ -1,3 +1,5 @@
+//Data aaccess object to perform GET operation to middleware to retrieve data
+
 async function getResultsDAO(){
     let resultsData;
     const options = {

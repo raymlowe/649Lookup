@@ -7,16 +7,18 @@ import styled from 'styled-components';
 
 const UserInputStyled = styled.div`
     background-color:#dddddd;
-
     .container{
+        padding:20px;
         display:flex;
-        flex-direction: row;
     }
 
-    .userNumber{
+    input.userNumber{
         max-width:100px;
         justify-content: center;
+        font-size: 2em;
+        text-align:center;
     }
+
 `
 
 function UserInput({ setUserNumbers }) {
@@ -90,22 +92,22 @@ function UserInput({ setUserNumbers }) {
                     <form onSubmit={handleSubmit}>
                         <Row>
                             <fieldset className='user_numbers_input' className='container'>
-                                <Col>
+                                <Col md="auto">
                                     <input className='userNumber' name="number1" maxLength="2" onChange={handleChange} />
                                 </Col>
-                                <Col>
+                                <Col md="auto">
                                     <input className='userNumber' name="number2" maxLength="2" onChange={handleChange} />
                                 </Col>
-                                <Col>
+                                <Col md="auto">
                                     <input className='userNumber' name="number3" maxLength="2" onChange={handleChange} />
                                 </Col>
-                                <Col>
+                                <Col md="auto">
                                     <input className='userNumber' name="number4" maxLength="2" onChange={handleChange} />
                                 </Col>
-                                <Col>
+                                <Col md="auto">
                                     <input className='userNumber' name="number5" maxLength="2" onChange={handleChange} />
                                 </Col>
-                                <Col>
+                                <Col md="auto">
                                     <input className='userNumber' name="number6" maxLength="2" onChange={handleChange} />
                                 </Col>
                             </fieldset>

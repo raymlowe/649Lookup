@@ -41,3 +41,12 @@ This will start up the UI on port 3001. Middleware calls are proxied to 3000. Se
 To deploy this app in a production environment, you want to first run 'npm run build' from the root 
 directory. See /package.json --> scrpts: for more detail. This is package the ui application and run 
 it along with the middlware all on port 3000.
+
+
+Raw Data API can be found here:
+/expressindex
+
+Tests can be run in th appui application via the following steps:
+
+cd/appui
+npm test

@@ -9,34 +9,42 @@ import ResultsDisplay from "./components/resultsdisplay";
 
 const AppStyled = styled.div`
   background-color:#eeeeee;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
 `
-function App(){
-//Get the data
-const[results, setResults] = useState([])
-const[userNumbers, setUserNumbers] = useState([])
+function App() {
+  //Get the data
+  const [results, setResults] = useState([])
+  const [userNumbers, setUserNumbers] = useState([])
 
-useEffect(() => {
-  resultsDAO
-    .getResultsDAO()
-    .then(data => {
-      if (data != undefined) {
-        setResults(data);
-      }
-    })
-    .catch((error) => {
-      console.log("error in home index getting data: "+error);
-    });
-}, []);
+  useEffect(() => {
+    resultsDAO
+      .getResultsDAO()
+      .then(data => {
+        if (data != undefined) {
+          setResults(data);
+        }
+      })
+      .catch((error) => {
+        console.log("error in home index getting data: " + error);
+      });
+  }, []);
 
-return(
-  <AppStyled>
-    <div>
-      <h1>Lotto Draw</h1>
-      <UserInput setUserNumbers={setUserNumbers}/>
-      <ResultsDisplay results={results} userNumbers={userNumbers}/>
-    </div>
-  </AppStyled>
-)  
+  let instructions=<p>Enter Six numbers (between 1 and 49) below and we will check them against every 6/49 draw since 1981, and calculate your net winnings (or losings).</p>;
+
+  return (
+    <AppStyled>
+      <div>
+        <h1>649 Historical Lookup Tool</h1>
+        <div className="contentBody">
+          {instructions}
+          <UserInput setUserNumbers={setUserNumbers} />
+          <ResultsDisplay results={results} userNumbers={userNumbers} />
+        </div>
+      </div>
+    </AppStyled>
+  )
 
 }
 

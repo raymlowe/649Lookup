@@ -1,5 +1,8 @@
-function numberMatcher(result, userNumbers) {
-    /*we are going to score the results according to the following score sheet:
+/*
+The number matcher will provide a score value correesponding to the number of matches.
+The score value is a numerical representation of matching state. See table below for
+matching states:
+
         2/6  --> 2 two out of six numbers
         3/6  --> 3 three out of the six numbers
         4/6  --> 4 four of the six numbers
@@ -8,7 +11,8 @@ function numberMatcher(result, userNumbers) {
 
         2/6+ --> 8 two out of six numbers plus bonus
         5/6+ --> 9 five out of the six numbers plus bonus
-    */
+*/
+function numberMatcher(result, userNumbers) {
     var score = 0;
     //We will compare the user numbers to the result numbers
     for (let i = 0; i < userNumbers.length; i++) {
@@ -47,7 +51,7 @@ function numberMatcher(result, userNumbers) {
     }
 
     //Zero the score if only one number matched
-    if(score ==1){
+    if (score == 1) {
         score = 0;
     }
     return score;
@@ -66,22 +70,22 @@ Prize amount by score table:
     8   (2/6+)= $5
     9   (5/6+)= $250,000
 */
-function getAmountByScore(score){
-    if(score==2){
+function getAmountByScore(score) {
+    if (score == 2) {
         return 3;
-    }else if(score==3){
+    } else if (score == 3) {
         return 10;
-    }else if(score==4){
+    } else if (score == 4) {
         return 85;
-    }else if(score==5){
+    } else if (score == 5) {
         return 3000;
-    }else if(score==6){
+    } else if (score == 6) {
         return 5000000;
-    }else if(score==8){
+    } else if (score == 8) {
         return 5;
-    }else if(score==9){
+    } else if (score == 9) {
         return 250000
-    }else{
+    } else {
         return 0;
     }
 }
