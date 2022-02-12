@@ -12,6 +12,6 @@ configure({ adapter: new Adapter() });
 
 it("renders correctly", () => {
   const wrapper = shallow(<App />);
-  const header = <h1>Lotto Draw</h1>;
+  const header = <h1>649 Historical Lookup Tool</h1>;
   expect(wrapper.contains(header)).toEqual(true);
 });
