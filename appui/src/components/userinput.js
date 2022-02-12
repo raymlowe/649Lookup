@@ -20,9 +20,14 @@ const UserInputStyled = styled.div`
     }
 
 `
-
+/*
+This is the form to handle user inputs.
+We want to take in the numbers that the user have inputted
+and verify that they are valid
+*/
 function UserInput({ setUserNumbers }) {
 
+    //Hook for user values
     const [state, setState] = React.useState({
         number1: "",
         number2: "",
@@ -32,6 +37,7 @@ function UserInput({ setUserNumbers }) {
         number6: "",
     })
 
+    //on input, update hook
     function handleChange(evt) {
         const value = evt.target.value;
         setState({
@@ -40,8 +46,8 @@ function UserInput({ setUserNumbers }) {
         });
     }
 
+    //Validate user input against business logic
     function validateNumbers(){
-
         //Let work with an array
         const inputArray = [state.number1, state.number2, state.number3, state.number4, state.number5, state.number6];
 
@@ -70,9 +76,11 @@ function UserInput({ setUserNumbers }) {
                 }
             }        
         }
+        //If Valid, update userNumbers Hook
         setUserNumbers(inputArray)
     }
 
+    //Handle Submit on form submission
     const handleSubmit = event => {
         event.preventDefault();
         console.log("YOUR NUMBERS: ")

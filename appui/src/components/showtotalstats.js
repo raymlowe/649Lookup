@@ -20,7 +20,7 @@ function ShowTotalStats({ results, userNumbers }) {
         //Look at each historical result and compute winnings
         for (var i = 0; i < results.data.length; i++) {
             let result = results.data[i]
-            //Match our defined set of results
+            //Match our defined set of results (only to result 3620)
             if (result.draw_number <= 3620) {
                 //calculate our winnings
                 let score = utils.numberMatcher(result, userNumbers)
@@ -29,6 +29,7 @@ function ShowTotalStats({ results, userNumbers }) {
 
                 //Compute Total Spent
                 //We assume that the user did not miss a draw
+                //AND has only purchased one draw
                 if (result.draw_number >= 1 && result.draw_number <= 2124) {
                     spendings = spendings + 1;
                 } else if (result.draw_number >= 2125 && result.draw_number <= 2989) {

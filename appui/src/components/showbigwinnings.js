@@ -20,11 +20,8 @@ function ShowBigWinnings({ results, userNumbers }) {
         for (var i = 0; i < results.data.length; i++) {
             let result = results.data[i]
             //we assume that draw 3620 is the last draw
-            //console.log(result);
-            //console.log(result.draw_number)
             if (result.draw_number <= 3620) {
                 let score = utils.numberMatcher(result, userNumbers)
-                //console.log(score)
                 if (
                     score === 4 ||
                     score === 5 ||
@@ -40,8 +37,6 @@ function ShowBigWinnings({ results, userNumbers }) {
             const thisRecord=bigWinningsArray[j];
             const drawDate=thisRecord[1].draw_date.substring(0, 10);
             const amount=utils.getAmountByScore(thisRecord[0].score);
-            console.log(drawDate)
-            console.log(amount)
             bigWinningsRenderArray.push(<p key={j}>{drawDate} won: ${amount}</p>);
         }
     }
