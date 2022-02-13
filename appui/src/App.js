@@ -10,8 +10,6 @@ import ResultsDisplay from "./components/resultsdisplay";
 const AppStyled = styled.div`
   background-color:#eeeeee;
   display:block;
-  margin-left:auto;
-  margin-right:auto;
 `
 function App() {
   //Get the data

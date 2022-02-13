@@ -6,18 +6,27 @@ import Container from 'react-bootstrap/Container';
 import styled from 'styled-components';
 
 const UserInputStyled = styled.div`
-    background-color:#dddddd;
-    .container{
-        padding:20px;
-        display:flex;
-    }
+.inputContainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
 
-    input.userNumber{
-        max-width:100px;
-        justify-content: center;
-        font-size: 2em;
-        text-align:center;
-    }
+.inputBox{
+    flex-shrink: 3;
+    padding:3px;
+}
+
+.userNumber{
+    max-width:50px;
+    padding: 5px;
+    text-align:center;
+}
+
+.submitButton{
+    padding: 5px;
+}
 
 `
 /*
@@ -47,34 +56,34 @@ function UserInput({ setUserNumbers }) {
     }
 
     //Validate user input against business logic
-    function validateNumbers(){
+    function validateNumbers() {
         //Let work with an array
         const inputArray = [state.number1, state.number2, state.number3, state.number4, state.number5, state.number6];
 
-        for(let i=0; i<inputArray.length; i++){
+        for (let i = 0; i < inputArray.length; i++) {
             var testValue = inputArray[i];
-            if(testValue == ''){
+            if (testValue == '') {
                 alert("Please enter 6 values")
                 return false
-            }if(isNaN(testValue)){
+            } if (isNaN(testValue)) {
                 alert("Please input numbers only")
                 return false
-            }if(testValue < 1 || testValue > 49){
+            } if (testValue < 1 || testValue > 49) {
                 alert("Please enter a number between 1-49 inclusive")
                 return false
-            }else{
+            } else {
                 //check for duplicate numbers
                 let count = 0;
-                for(let j=0; j<inputArray.length; j++){
-                   if(testValue == inputArray[j]){
-                    count++;
-                   }
+                for (let j = 0; j < inputArray.length; j++) {
+                    if (testValue == inputArray[j]) {
+                        count++;
+                    }
                 }
-                if(count!=1){
+                if (count != 1) {
                     alert("Numbers must be unique")
                     return false;
                 }
-            }        
+            }
         }
         //If Valid, update userNumbers Hook
         setUserNumbers(inputArray)
@@ -96,35 +105,33 @@ function UserInput({ setUserNumbers }) {
     return (
         <UserInputStyled>
             <div className="input_form">
-                <Container>
-                    <form onSubmit={handleSubmit}>
-                        <Row>
-                            <fieldset className='user_numbers_input' className='container'>
-                                <Col md="auto">
-                                    <input className='userNumber' name="number1" maxLength="2" onChange={handleChange} />
-                                </Col>
-                                <Col md="auto">
-                                    <input className='userNumber' name="number2" maxLength="2" onChange={handleChange} />
-                                </Col>
-                                <Col md="auto">
-                                    <input className='userNumber' name="number3" maxLength="2" onChange={handleChange} />
-                                </Col>
-                                <Col md="auto">
-                                    <input className='userNumber' name="number4" maxLength="2" onChange={handleChange} />
-                                </Col>
-                                <Col md="auto">
-                                    <input className='userNumber' name="number5" maxLength="2" onChange={handleChange} />
-                                </Col>
-                                <Col md="auto">
-                                    <input className='userNumber' name="number6" maxLength="2" onChange={handleChange} />
-                                </Col>
-                            </fieldset>
-                        </Row>
-                        <Row>
-                            <button className='submit' type="submit">Submit</button>
-                        </Row>
-                    </form>
-                </Container>
+
+                <form onSubmit={handleSubmit}>
+                    <div className="inputContainer">
+                        <div className="inputBox">
+                            <input className='userNumber' name="number1" maxLength="2" onChange={handleChange} />
+                        </div>
+                        <div className="inputBox">
+                            <input className='userNumber' name="number2" maxLength="2" onChange={handleChange} />
+                        </div>
+                        <div className="inputBox">
+                            <input className='userNumber' name="number3" maxLength="2" onChange={handleChange} />
+                        </div>
+                        <div className="inputBox">
+                            <input className='userNumber' name="number4" maxLength="2" onChange={handleChange} />
+                        </div>
+                        <div className="inputBox">
+                            <input className='userNumber' name="number5" maxLength="2" onChange={handleChange} />
+                        </div>
+                        <div className="inputBox">
+                            <input className='userNumber' name="number6" maxLength="2" onChange={handleChange} />
+                        </div>
+                    </div>
+                    <div className="submitButton">
+                        <button className='submit' type="submit">Submit</button>
+                    </div>
+                </form>
+
             </div>
 
         </UserInputStyled>
