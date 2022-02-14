@@ -20,7 +20,8 @@ function ShowBigWinnings({ results, userNumbers }) {
         for (var i = 0; i < results.data.length; i++) {
             let result = results.data[i]
             //we assume that draw 3620 is the last draw
-            if (result.draw_number <= 3620) {
+            //we only want to check against sequenceNumber='0'
+            if (result.draw_number <= 3620 && result.sequence_number == '0') {
                 let score = utils.numberMatcher(result, userNumbers)
                 if (
                     score === 4 ||

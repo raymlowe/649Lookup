@@ -9,7 +9,8 @@ const config = require('../config');
 
 async function getAllResults() {
     const rows = await db.query(
-        'SELECT * FROM results'
+        'SELECT * FROM results where sequence_number = ($1)',
+        [0]
     );
     const data = helper.emptyOrRows(rows);
     return {
