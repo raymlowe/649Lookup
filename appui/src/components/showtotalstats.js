@@ -10,7 +10,7 @@ const ShowTotalStatsStyled = styled.div`
     background-color:#dddddd;  
 `
 
-function ShowTotalStats({ results, userNumbers }) {
+function ShowTotalStats({ results, userNumbers, submitHappened }) {
 
     //Compute Total Winnings / Spendings
     let winnings = 0;
@@ -48,8 +48,8 @@ function ShowTotalStats({ results, userNumbers }) {
         <ShowTotalStatsStyled>
             <div>
                 <p>Total won: ${winnings}</p>
-                <p>Total Spent: ${spendings}</p>
-                <p>Total won/loss: ${nettings}</p>
+                <p>Total Spent: ${submitHappened ? spendings : 0}</p>
+                <p>Total won/loss: ${submitHappened ? nettings : 0}</p>
             </div>
         </ShowTotalStatsStyled>
     );

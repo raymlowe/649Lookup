@@ -13,14 +13,14 @@ const ResultsDisplayStyled = styled.div`
     background-color:#dddddd;  
 `
 
-function ResultsDisplay({results, userNumbers}) {
+function ResultsDisplay({results, userNumbers, submitHappened}) {
 
     return (
         <ResultsDisplayStyled>
             <div>
                 <ShowBigWinnings results={results} userNumbers={userNumbers}/>
                 <hr></hr>
-                <ShowTotalStats results={results} userNumbers={userNumbers}/>
+                <ShowTotalStats results={results} userNumbers={userNumbers} submitHappened={submitHappened}/>
             </div>
         </ResultsDisplayStyled>
     );

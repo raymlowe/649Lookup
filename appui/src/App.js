@@ -15,6 +15,7 @@ function App() {
   //Get the data
   const [results, setResults] = useState([])
   const [userNumbers, setUserNumbers] = useState([])
+  const [submitHappened, setSubmitHappened] = useState(false)
 
   useEffect(() => {
     resultsDAO
@@ -37,8 +38,8 @@ function App() {
         <h1>649 Historical Lookup Tool</h1>
         <div className="contentBody">
           {instructions}
-          <UserInput setUserNumbers={setUserNumbers} />
-          <ResultsDisplay results={results} userNumbers={userNumbers} />
+          <UserInput setUserNumbers={setUserNumbers} setSubmitHappened={setSubmitHappened} />
+          <ResultsDisplay results={results} userNumbers={userNumbers} submitHappened={submitHappened} />
         </div>
       </div>
     </AppStyled>

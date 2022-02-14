@@ -19,7 +19,7 @@ const UserInputStyled = styled.div`
 }
 
 .userNumber{
-    max-width:50px;
+    max-width:75px;
     padding: 5px;
     text-align:center;
 }
@@ -34,7 +34,7 @@ This is the form to handle user inputs.
 We want to take in the numbers that the user have inputted
 and verify that they are valid
 */
-function UserInput({ setUserNumbers }) {
+function UserInput({ setUserNumbers, setSubmitHappened}) {
 
     //Hook for user values
     const [state, setState] = React.useState({
@@ -85,6 +85,8 @@ function UserInput({ setUserNumbers }) {
                 }
             }
         }
+        //Set use inpug event
+        setSubmitHappened(true)
         //If Valid, update userNumbers Hook
         setUserNumbers(inputArray)
     }
