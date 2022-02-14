@@ -109,22 +109,22 @@ function UserInput({ setUserNumbers }) {
                 <form onSubmit={handleSubmit}>
                     <div className="inputContainer">
                         <div className="inputBox">
-                            <input className='userNumber' name="number1" maxLength="2" onChange={handleChange} />
+                            <input type="number" className='userNumber' name="number1" maxLength="2" onChange={handleChange} />
                         </div>
                         <div className="inputBox">
-                            <input className='userNumber' name="number2" maxLength="2" onChange={handleChange} />
+                            <input type="number" className='userNumber' name="number2" maxLength="2" onChange={handleChange} />
                         </div>
                         <div className="inputBox">
-                            <input className='userNumber' name="number3" maxLength="2" onChange={handleChange} />
+                            <input type="number" className='userNumber' name="number3" maxLength="2" onChange={handleChange} />
                         </div>
                         <div className="inputBox">
-                            <input className='userNumber' name="number4" maxLength="2" onChange={handleChange} />
+                            <input type="number" className='userNumber' name="number4" maxLength="2" onChange={handleChange} />
                         </div>
                         <div className="inputBox">
-                            <input className='userNumber' name="number5" maxLength="2" onChange={handleChange} />
+                            <input type="number" className='userNumber' name="number5" maxLength="2" onChange={handleChange} />
                         </div>
                         <div className="inputBox">
-                            <input className='userNumber' name="number6" maxLength="2" onChange={handleChange} />
+                            <input type="number" className='userNumber' name="number6" maxLength="2" onChange={handleChange} />
                         </div>
                     </div>
                     <div className="submitButton">

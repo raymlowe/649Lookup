@@ -21,6 +21,7 @@ function ShowTotalStats({ results, userNumbers }) {
         for (var i = 0; i < results.data.length; i++) {
             let result = results.data[i]
             //Match our defined set of results (only to result 3620)
+            //we only want to check against sequenceNumber='0'
             if (result.draw_number <= 3620 && result.sequence_number == '0') {
                 //calculate our winnings
                 let score = utils.numberMatcher(result, userNumbers)
